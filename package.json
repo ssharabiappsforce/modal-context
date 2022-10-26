@@ -1,11 +1,15 @@
 {
   "name": "modal-context",
-  "version": "0.1.7",
+  "version": "0.1.10",
   "private": false,
   "author": "Appsforce",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssharabiappsforce/modal-context"
+  },
   "files": [
     "dist"
   ],
@@ -24,7 +28,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build": "rm -rf dist/ && prettier --write src/ && npm run build:esm && npm run build:cjs ",
+    "build": "rm -rf dist/ && prettier --write src/ && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module CommonJs --outDir dist/cjs"
   },

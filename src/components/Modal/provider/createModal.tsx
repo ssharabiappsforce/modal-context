@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, createContext } from 'react';
 
 interface Props {
   children: React.ReactNode;
@@ -8,12 +7,9 @@ interface Props {
 type ModalProps<T extends React.JSXElementConstructor<any>> = Omit<React.ComponentProps<T>, 'onCancel'> & Partial<Pick<React.ComponentProps<T>, 'onCancel'>>;
 
 export const createModalProvider = <T extends Record<string, React.JSXElementConstructor<any>>>(modals: T) => {
-  const ModalContext = React.createContext({
-    // eslint-disable-next-line
+  const ModalContext = createContext({
     openModal: <M extends keyof T>(modal: M, props: ModalProps<typeof modals[M]>) => {},
-    // eslint-disable-next-line
     closeModal: () => {},
-    // eslint-disable-next-line
     setModalProps: (props: any) => {}
   });
 
